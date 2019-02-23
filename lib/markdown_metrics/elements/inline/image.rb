@@ -4,8 +4,8 @@ module MarkdownMetrics
   module Elements
     module Inline
       class Image
-        def self.matching_rule
-          /^\!\[.*\)$/
+        def self.match(line, next_line)
+          line.match(/^\!\[.*\)$/)
         end
 
         def self.element_name
