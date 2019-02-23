@@ -35,11 +35,10 @@ require 'markdown_metrics/line_low_element'
 require 'markdown_metrics/low_elements_parser'
 
 module MarkdownMetrics
-  class Generator
+  ELEMENTS_WITH_LOW_ELEMENTS = %i[table paragraph list h1 h2 h3 h4 h5 h6 quote]
 
-    ELEMENTS_WITH_LOW_ELEMENTS = %i[table paragraph list h1 h2 h3 h4 h5 h6 quote]
-
-    def self.call(file_path:)
+  class << self
+    def generate(file_path:)
       file_lines = MarkdownMetrics::FileLines.from(file_path)
       top_elements_parser = MarkdownMetrics::TopElementsParser.new(file_lines)
       top_elements_parser.parse
@@ -73,7 +72,7 @@ module MarkdownMetrics
 
     private
 
-    def self.low_elements(value)
+    def low_elements(value)
       parser = MarkdownMetrics::LowElementsParser.new(value: value)
       parser.parse
       parser.elements

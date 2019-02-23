@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-RSpec.describe MarkdownMetrics::Generator do
-  describe '.call' do
-    subject { described_class.call(file_path: file_path) }
+RSpec.describe MarkdownMetrics do
+  describe '.generate' do
+    subject { described_class.generate(file_path: file_path) }
 
     let(:file_path) { 'fake_path' }
     let(:markdown_lines) do

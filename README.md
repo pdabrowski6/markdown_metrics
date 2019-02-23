@@ -7,7 +7,7 @@
 Just give it a file path to the markdown document:
 
 ```ruby
-MarkdownMetrics::Generator.call(file_path: 'file.md')
+MarkdownMetrics.generate(file_path: 'file.md')
 ```
 
 ## Not supported elements
