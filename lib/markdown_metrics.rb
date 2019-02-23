@@ -14,6 +14,8 @@ require 'markdown_metrics/elements/inline/h6'
 require 'markdown_metrics/elements/inline/image'
 require 'markdown_metrics/elements/inline/pre'
 require 'markdown_metrics/elements/inline/empty_line'
+require 'markdown_metrics/elements/inline/paragraph'
+
 
 module MarkdownMetrics
 
