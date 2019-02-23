@@ -3,16 +3,16 @@
 module MarkdownMetrics
   module Elements
     module Inline
-      class EmptyLine
+      class EmptyLine < MarkdownMetrics::Elements::Base
         def self.match_element(line, next_line)
           line.nil? || line == ''
         end
 
-        def self.element_name
+        def name
           :empty_line
         end
 
-        def self.value(line)
+        def value
           nil
         end
       end
