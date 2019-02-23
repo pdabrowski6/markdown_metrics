@@ -4,8 +4,8 @@ module MarkdownMetrics
   module Elements
     module Inline
       class H2
-        def self.matching_rule
-          /^\#{2} .*/
+        def self.match(line, next_line)
+          line.match(/^\#{2} .*/)
         end
 
         def self.element_name
