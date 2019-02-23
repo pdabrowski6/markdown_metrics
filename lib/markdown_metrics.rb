@@ -35,5 +35,47 @@ require 'markdown_metrics/line_low_element'
 require 'markdown_metrics/low_elements_parser'
 
 module MarkdownMetrics
+  module_function
 
+  ELEMENTS_WITH_LOW_ELEMENTS = %i[table paragraph list h1 h2 h3 h4 h5 h6 quote]
+
+  def self.generate(file_path:)
+    file_lines = MarkdownMetrics::FileLines.from(file_path)
+    top_elements_parser = MarkdownMetrics::TopElementsParser.new(file_lines)
+    top_elements_parser.parse
+
+    top_elements_parser.elements.map do |element|
+      unless ELEMENTS_WITH_LOW_ELEMENTS.include?(element[:name])
+        element
+      else
+        if element[:name] == :table
+          new_rows = []
+          element[:value][:rows].each do |r|
+            new_rows << r.map do |row|
+              low_elements(row)
+            end
+          end
+
+          element[:value].merge!(rows: new_rows)
+          element
+        else
+          low_level_values = if element[:value].kind_of?(Array)
+            element[:value].map { |v| low_elements(v) }
+          else
+            low_elements(element[:value])
+          end
+
+          element.merge(value: low_level_values)
+        end
+      end
+    end
+  end
+
+  private
+
+  def self.low_elements(value)
+    parser = MarkdownMetrics::LowElementsParser.new(value: value)
+    parser.parse
+    parser.elements
+  end
 end
