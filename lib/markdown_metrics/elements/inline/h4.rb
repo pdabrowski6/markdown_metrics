@@ -4,8 +4,8 @@ module MarkdownMetrics
   module Elements
     module Inline
       class H4
-        def self.match(line, next_line)
-          line.match(/^\#{4} .*/)
+        def self.match_element(line, next_line)
+          line.to_s.match(/^\#{4} .*/)
         end
 
         def self.element_name
