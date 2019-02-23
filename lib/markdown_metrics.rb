@@ -13,6 +13,7 @@ require 'markdown_metrics/elements/inline/h5'
 require 'markdown_metrics/elements/inline/h6'
 require 'markdown_metrics/elements/inline/image'
 require 'markdown_metrics/elements/inline/pre'
+require 'markdown_metrics/elements/inline/empty_line'
 
 module MarkdownMetrics
 
