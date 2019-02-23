@@ -3,17 +3,17 @@
 module MarkdownMetrics
   module Elements
     module Inline
-      class Image
+      class Image < MarkdownMetrics::Elements::Base
         def self.match_element(line, next_line)
           line.to_s.match(/^\!\[.*\)$/)
         end
 
-        def self.element_name
+        def name
           :image
         end
 
-        def self.value(line)
-          line.match(/\((?<image>.*)\)$/)['image']
+        def value
+          current_line.match(/\((?<image>.*)\)$/)['image']
         end
 
         def self.attributes(line)
