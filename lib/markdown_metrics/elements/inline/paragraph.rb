@@ -3,17 +3,17 @@
 module MarkdownMetrics
   module Elements
     module Inline
-      class Paragraph
+      class Paragraph < MarkdownMetrics::Elements::Base
         def self.match_element(line, next_line)
           !line.nil? && line != ''
         end
 
-        def self.element_name
+        def name
           :paragraph
         end
 
-        def self.value(line)
-          line
+        def value
+          current_line
         end
       end
     end
