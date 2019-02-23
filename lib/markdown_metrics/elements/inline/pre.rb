@@ -4,8 +4,8 @@ module MarkdownMetrics
   module Elements
     module Inline
       class Pre
-        def self.matching_rule
-          /\s{4}.*/
+        def self.match(line, next_line)
+          line.match(/\s{4}.*/)
         end
 
         def self.element_name
