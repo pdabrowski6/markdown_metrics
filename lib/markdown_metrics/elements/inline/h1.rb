@@ -4,8 +4,8 @@ module MarkdownMetrics
   module Elements
     module Inline
       class H1
-        def self.matching_rule
-          /^\#{1} .*/
+        def self.match(line, next_line)
+          line.match(/^\#{1} .*/)
         end
 
         def self.element_name
