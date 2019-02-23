@@ -4,8 +4,8 @@ module MarkdownMetrics
   module Elements
     module Inline
       class H3
-        def self.matching_rule
-          /^\#{3} .*/
+        def self.match(line, next_line)
+          line.match(/^\#{3} .*/)
         end
 
         def self.element_name
