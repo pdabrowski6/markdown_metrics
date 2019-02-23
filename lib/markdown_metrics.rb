@@ -16,6 +16,7 @@ require 'markdown_metrics/elements/inline/paragraph'
 require 'markdown_metrics/elements/block/table'
 require 'markdown_metrics/elements/block/pre'
 require 'markdown_metrics/elements/block/quote'
+require 'markdown_metrics/elements/block/list'
 
 require 'markdown_metrics/file_lines'
 require 'markdown_metrics/line_top_element'
