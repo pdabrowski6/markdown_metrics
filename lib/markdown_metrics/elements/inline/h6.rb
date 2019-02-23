@@ -4,8 +4,8 @@ module MarkdownMetrics
   module Elements
     module Inline
       class H6
-        def self.match(line, next_line)
-          line.match(/^\#{6} .*/)
+        def self.match_element(line, next_line)
+          line.to_s.match(/^\#{6} .*/)
         end
 
         def self.element_name
