@@ -3,17 +3,17 @@
 module MarkdownMetrics
   module Elements
     module Inline
-      class H6
+      class H6 < MarkdownMetrics::Elements::Base
         def self.match_element(line, next_line)
           line.to_s.match(/^\#{6} .*/)
         end
 
-        def self.element_name
+        def name
           :h6
         end
 
-        def self.value(line)
-          line.gsub(/^\#{6} /, '')
+        def value
+          current_line.gsub(/^\#{6} /, '')
         end
       end
     end
