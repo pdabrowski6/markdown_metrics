@@ -8,12 +8,14 @@ module MarkdownMetrics
     end
 
     def parse
-      @lines.each_with_index do |line, index|
+      @lines.each_with_index_and_catch do |line, index|
         element = initialize_element(line, index)
         @elements << {
           name: element.name,
           value: element.value
         }.merge(element.attributes)
+        
+        throw :skip_iteration, element.skip_lines_until if element.skip_lines_until > 0
       end
     end
 

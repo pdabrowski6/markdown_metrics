@@ -12,7 +12,25 @@ RSpec.describe MarkdownMetrics::TopElementsParser do
       "###### Header level 6",
       "![desc](image)",
       "    gem install",
-      ""
+      "",
+      ">Some quote",
+      ">",
+      ">Author",
+      "* First item",
+      "* Second item",
+      "* Third item",
+      "- First item",
+      "- Second item",
+      "1. First item",
+      "2. Second item",
+      "```ruby",
+      "class Some",
+      "end",
+      "```",
+      "Header | Header1",
+      "----- | ----",
+      "value | value 1",
+      "value 2 | value 3"
     ]
   end
 
@@ -32,7 +50,13 @@ RSpec.describe MarkdownMetrics::TopElementsParser do
         { name: :h6, value: 'Header level 6' },
         { name: :image, value: 'image', alt: 'desc' },
         { name: :pre, value: 'gem install' },
-        { name: :empty_line, value: nil }
+        { name: :empty_line, value: nil },
+        { name: :quote, value: ['Some quote', '', 'Author'] },
+        { name: :list, value: [' First item', ' Second item', ' Third item'], type: :star },
+        { name: :list, value: [' First item', ' Second item'], type: :dash },
+        { name: :list, value: [' First item', ' Second item'], type: :number },
+        { name: :pre, value: "class Some\nend", language: 'ruby' },
+        { name: :table, value: { headers: ["Header ", " Header1"], rows: [['value ', ' value 1'], ['value 2 ', ' value 3']] } }
       ])
     end
   end
