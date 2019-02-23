@@ -39,7 +39,7 @@ module MarkdownMetrics
 
   ELEMENTS_WITH_LOW_ELEMENTS = %i[table paragraph list h1 h2 h3 h4 h5 h6 quote]
 
-  def self.generate(file_path:)
+  def generate(file_path:)
     file_lines = MarkdownMetrics::FileLines.from(file_path)
     top_elements_parser = MarkdownMetrics::TopElementsParser.new(file_lines)
     top_elements_parser.parse
