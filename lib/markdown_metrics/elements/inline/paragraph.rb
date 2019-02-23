@@ -4,6 +4,10 @@ module MarkdownMetrics
   module Elements
     module Inline
       class Paragraph
+        def self.match(line, next_line)
+          !line.nil? && line != ''
+        end
+
         def self.element_name
           :paragraph
         end
