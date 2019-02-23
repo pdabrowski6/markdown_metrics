@@ -61,5 +61,29 @@ RSpec.describe MarkdownMetrics::LineTopElement do
         described_class.match_element('Lorem ipsum', nil)
       ).to eq(MarkdownMetrics::Elements::Inline::Paragraph)
     }
+
+    it { 
+      expect(
+        described_class.match_element('* First item', nil)
+      ).to eq(MarkdownMetrics::Elements::Block::List)
+    }
+
+    it { 
+      expect(
+        described_class.match_element('> Quote', '> Author')
+      ).to eq(MarkdownMetrics::Elements::Block::Quote)
+    }
+
+    it { 
+      expect(
+        described_class.match_element('Header | Header', '---- | ----')
+      ).to eq(MarkdownMetrics::Elements::Block::Table)
+    }
+
+    it { 
+      expect(
+        described_class.match_element('```ruby', 'class Ruby')
+      ).to eq(MarkdownMetrics::Elements::Block::Pre)
+    }
   end
 end

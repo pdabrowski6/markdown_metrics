@@ -3,6 +3,10 @@
 module MarkdownMetrics
   class LineTopElement
     ELEMENTS = [
+      MarkdownMetrics::Elements::Block::List,
+      MarkdownMetrics::Elements::Block::Pre,
+      MarkdownMetrics::Elements::Block::Quote,
+      MarkdownMetrics::Elements::Block::Table,
       MarkdownMetrics::Elements::Inline::H1,
       MarkdownMetrics::Elements::Inline::H2,
       MarkdownMetrics::Elements::Inline::H3,
