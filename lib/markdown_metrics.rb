@@ -21,10 +21,18 @@ require 'markdown_metrics/elements/block/pre'
 require 'markdown_metrics/elements/block/quote'
 require 'markdown_metrics/elements/block/list'
 
+require 'markdown_metrics/elements/sentence/base'
+require 'markdown_metrics/elements/sentence/bold'
+require 'markdown_metrics/elements/sentence/italic'
+require 'markdown_metrics/elements/sentence/link'
+require 'markdown_metrics/elements/sentence/code'
+require 'markdown_metrics/elements/sentence/text'
+
 require 'markdown_metrics/file_lines'
 require 'markdown_metrics/line_top_element'
 require 'markdown_metrics/top_elements_parser'
-
+require 'markdown_metrics/line_low_element'
+require 'markdown_metrics/low_elements_parser'
 
 module MarkdownMetrics
 
