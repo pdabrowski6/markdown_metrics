@@ -3,17 +3,17 @@
 module MarkdownMetrics
   module Elements
     module Inline
-      class H4
+      class H4 < MarkdownMetrics::Elements::Base
         def self.match_element(line, next_line)
           line.to_s.match(/^\#{4} .*/)
         end
 
-        def self.element_name
+        def name
           :h4
         end
 
-        def self.value(line)
-          line.gsub(/^\#{4} /, '')
+        def value
+          current_line.gsub(/^\#{4} /, '')
         end
       end
     end
