@@ -5,7 +5,10 @@ module MarkdownMetrics
     module Sentence
       class Text < MarkdownMetrics::Elements::Sentence::Base
         def self.match_element(character, next_character)
-          !['*', '`'].include?(character) && character != '(' && next_character != '['
+          return false if ['*', '`'].include?(character)
+          return true if character != '('
+
+          next_character != '['
         end
 
         def name
@@ -20,7 +23,7 @@ module MarkdownMetrics
               @skip_lines_until = index2 + 2
               final_value = @value[@start_at..index2]
               break
-            elsif chr2 == "`" || chr2 == "*" || chr2 == "(" || chr2 == "["
+            elsif chr2 == "`" || chr2 == "*" || (chr2 == "(" && @value[index2 + 1] == "[")
               @skip_lines_until = index2 - 1
               final_value = @value[@start_at..(index2 - 1)]
               break

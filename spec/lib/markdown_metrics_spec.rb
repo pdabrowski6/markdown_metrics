@@ -36,7 +36,8 @@ RSpec.describe MarkdownMetrics do
         '### header 3',
         '#### header 4',
         '##### header 5',
-        '###### header 6'
+        '###### header 6',
+        'Paragraph (1)'
       ]
     end
 
@@ -112,7 +113,10 @@ RSpec.describe MarkdownMetrics do
         ]},
         { name: :h6, value: [
           { name: :text, value: 'header 6' }
-        ]}
+        ]},
+        { name: :paragraph, value: [
+          { name: :text, value: 'Paragraph (1)' }
+        ] },
       ])
     end
   end
