@@ -11,6 +11,7 @@ require 'markdown_metrics/elements/inline/h3'
 require 'markdown_metrics/elements/inline/h4'
 require 'markdown_metrics/elements/inline/h5'
 require 'markdown_metrics/elements/inline/h6'
+require 'markdown_metrics/elements/inline/image'
 
 module MarkdownMetrics
 
