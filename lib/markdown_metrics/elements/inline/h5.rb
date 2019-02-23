@@ -4,8 +4,8 @@ module MarkdownMetrics
   module Elements
     module Inline
       class H5
-        def self.matching_rule
-          /^\#{5} .*/
+        def self.match(line, next_line)
+          line.match(/^\#{5} .*/)
         end
 
         def self.element_name
