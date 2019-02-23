@@ -4,7 +4,7 @@ module MarkdownMetrics
   module Elements
     module Inline
       class Paragraph
-        def self.match(line, next_line)
+        def self.match_element(line, next_line)
           !line.nil? && line != ''
         end
 
