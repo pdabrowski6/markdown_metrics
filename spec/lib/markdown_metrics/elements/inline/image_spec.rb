@@ -17,9 +17,9 @@ RSpec.describe MarkdownMetrics::Elements::Inline::Image do
     it { expect(element.value).to eq('http://url.com/image') }
   end
 
-  describe '.attributes' do
+  describe '#attributes' do
     it 'returns alt attribute' do
-      expect(described_class.attributes(line)).to eq({ alt: 'image_desc' })
+      expect(element.attributes).to eq({ alt: 'image_desc' })
     end
   end
 end

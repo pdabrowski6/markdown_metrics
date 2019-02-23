@@ -6,6 +6,10 @@ module MarkdownMetrics
         @start_at = start_at
       end
 
+      def attributes
+        {}
+      end
+
       private
 
       def current_line

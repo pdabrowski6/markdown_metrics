@@ -13,7 +13,7 @@ module MarkdownMetrics
         @elements << {
           name: element.name,
           value: element.value
-        }
+        }.merge(element.attributes)
       end
     end
 

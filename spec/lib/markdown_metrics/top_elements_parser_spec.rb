@@ -30,7 +30,7 @@ RSpec.describe MarkdownMetrics::TopElementsParser do
         { name: :h4, value: 'Header level 4' },
         { name: :h5, value: 'Header level 5' },
         { name: :h6, value: 'Header level 6' },
-        { name: :image, value: 'image' },
+        { name: :image, value: 'image', alt: 'desc' },
         { name: :pre, value: 'gem install' },
         { name: :empty_line, value: nil }
       ])

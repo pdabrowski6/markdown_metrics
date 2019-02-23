@@ -16,8 +16,8 @@ module MarkdownMetrics
           current_line.match(/\((?<image>.*)\)$/)['image']
         end
 
-        def self.attributes(line)
-          { alt: line.match(/\[(?<alt>.*)\]/)['alt'] }
+        def attributes
+          { alt: current_line.match(/\[(?<alt>.*)\]/)['alt'] }
         end
       end
     end
