@@ -24,11 +24,11 @@ RSpec.describe MarkdownMetrics do
         '',
         '>Quote',
         '>',
-        '>**Author**',
+        '>Author',
         '',
         'Header | Header2',
         '---- | ----',
-        'Value 1 | Value **2**',
+        'Value 1 | Value 2',
         '![image alt](https://url.com/image)',
         '    gem install',
         '# Header with *italic*',
@@ -81,18 +81,9 @@ RSpec.describe MarkdownMetrics do
         { name: :empty_line, value: nil },
         { name: :pre, language: 'ruby', value: "class Something\nend" },
         { name: :empty_line, value: nil },
-        { name: :quote, value: [
-          [ { name: :text, value: 'Quote' }],
-          [],
-          [ { name: :bold, value: 'Author' }]
-        ] },
+        { name: :quote, value: ['Quote', '', 'Author'] },
         { name: :empty_line, value: nil },
-        { name: :table, value: { headers: ['Header ', ' Header2'], rows: [
-          [
-            [{ name: :text, value: 'Value 1 ' }], 
-            [{ name: :text, value: ' Value ' }, { name: :bold, value: '2' }]
-          ]
-        ] } },
+        { name: :table, value: { headers: ['Header ', ' Header2'], rows: [["Value 1 ", " Value 2"]] } },
         { name: :image, value: 'https://url.com/image', alt: 'image alt' },
         { name: :pre, value: 'gem install' },
         { name: :h1, value: [

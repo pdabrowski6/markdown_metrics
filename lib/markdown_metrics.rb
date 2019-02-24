@@ -35,7 +35,7 @@ require 'markdown_metrics/line_low_element'
 require 'markdown_metrics/low_elements_parser'
 
 module MarkdownMetrics
-  ELEMENTS_WITH_LOW_ELEMENTS = %i[table paragraph list h1 h2 h3 h4 h5 h6 quote]
+  ELEMENTS_WITH_LOW_ELEMENTS = %i[paragraph list h1 h2 h3 h4 h5 h6]
 
   class << self
     def generate(file_path:)
