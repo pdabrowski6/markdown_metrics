@@ -2,6 +2,12 @@
 
 `MarkdownMetrics` is a library for the markdown document structure tree generation. Generated structure can be used then to translate markdown document to any other format like PDF or HTML.
 
+## Installation
+
+```
+gem install markdown_metrics
+```
+
 ## Usage
 
 Just give it a file path to the markdown document:
